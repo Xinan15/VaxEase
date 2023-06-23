@@ -11,10 +11,11 @@ app.use(express.json());
 
 // Configure MySQL connection
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'password',
-  database: 'your_database'
+    host: "localhost",
+    user: "root",
+    // password: "",
+    database: "Vaccination",
+    connectionLimit: 10
 });
 
 // Connect to the database
