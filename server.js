@@ -5,6 +5,8 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const app = express();
+const passport = require("passport");
+const initializePassport = require("./passport-config")
 
 // Here we simply store all users in an array, but a robust app needs a database
 
