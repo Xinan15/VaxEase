@@ -10,6 +10,13 @@ const initializePassport = require("./passport-config")
 
 // Here we simply store all users in an array, but a robust app needs a database
 
+// Check if the email passed in equals to the one in the database
+initializePassport(
+  passport,
+  email => users.find()
+
+)
+
 const users = [];
 
 app.use(express.urlencoded({ extended: false }));

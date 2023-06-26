@@ -18,3 +18,5 @@ npm i passport passport-local express-session express-flash
 (node --version)
 
 (.env to store secret info)
+
+npm i method-override
