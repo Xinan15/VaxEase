@@ -1,0 +1,8 @@
+express
+ejs
+bcrypt // In node.js, we hashing password using a library named bcrypt
+express-flash
+express-session
+method-override
+passport // In node.js, passport is a simple library to authenticate users
+passport-local
