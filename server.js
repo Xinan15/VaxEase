@@ -26,7 +26,7 @@ const users = []
 app.use(express.urlencoded({extended: false}))
 app.use(flash())
 app.use(session({
-    secret: process.env.SESSION_SECRET,
+    secret: process.env.SECRET_KEY,
     resave: false,
     // We wont resave the session variable if nothing is changed
     saveUninitialized: false
@@ -98,4 +98,4 @@ function checkNotAuthenticated(req, res, next){
   next()
 }
 
-app.listen(3000);
+app.listen(3000, () => console.log('Server started on port 3000'));
