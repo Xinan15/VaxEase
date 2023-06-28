@@ -4,13 +4,15 @@ if (process.env.NODE_ENV !== "production") {
 // Import libraries that we installed using npm
 
 const express = require("express");
-const app = express();
 const bcrypt = require("bcrypt");
 const passport = require("passport");
 const initializePassport = require("./passport-config");
 const flash = require("express-flash");
 const session = require("express-session");
 const methodOverride = require("method-override");
+
+const app = express();
+app.use(express.static("public"));
 
 // Here we simply store all users in an array, but a robust app needs a database
 
