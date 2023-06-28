@@ -14,7 +14,7 @@ const methodOverride = require("method-override");
 const app = express();
 app.use(express.static("public"));
 
-// Here we simply store all users in an array, but a robust app needs a database
+// For now, I simply store all users in an array, and will store them in database later
 
 // Check if the email passed in equals to the one in the database
 initializePassport(
@@ -75,6 +75,10 @@ app.get('/login', checkNotAuthenticated, (req, res) => {
 
 app.get('/register', checkNotAuthenticated, (req, res) => {
   res.render("register.ejs")
+})
+
+app.get('/appoint', checkNotAuthenticated, (req, res) => {
+  res.render("appoint.ejs")
 })
 
 // End outes
