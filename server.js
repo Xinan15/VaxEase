@@ -1,7 +1,6 @@
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
-// Import libraries that we installed using npm
 
 const express = require("express");
 const bcrypt = require("bcrypt");
