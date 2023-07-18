@@ -4,6 +4,7 @@ import axios from "axios";
 // useCookies is to access the cookies
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
+import authcss from "./authCSS.module.css";
 
 export const Auth = () => {
   return (
@@ -69,7 +70,7 @@ const Login = () => {
             onChange={(event) => setPassword(event.target.value)}
           />
         </div>
-        <button type="submit">Login</button>
+        <button type="submit" className={authcss.button_login}>Login</button>
       </form>
     </div>
   );
@@ -121,7 +122,7 @@ const Register = () => {
             onChange={(event) => setPassword(event.target.value)}
           />
         </div>
-        <button type="submit">Register</button>
+        <button className={authcss.button} type="submit">Register</button>
       </form>
     </div>
   );

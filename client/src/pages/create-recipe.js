@@ -83,7 +83,7 @@ export const CreateRecipe = () => {
             onChange={(event) => handleIngredientChange(event, index)}
           />
         ))}
-        <button type="button" onClick={handleAddIngredient}>
+        <button type="button" className="button" onClick={handleAddIngredient}>
           Add Ingredient
         </button>
         <label htmlFor="instructions">Instructions</label>
@@ -109,7 +109,7 @@ export const CreateRecipe = () => {
           value={recipe.cookingTime}
           onChange={handleChange}
         />
-        <button type="submit">Create Recipe</button>
+        <button type="submit" className="button">Create Recipe</button>
       </form>
     </div>
   );

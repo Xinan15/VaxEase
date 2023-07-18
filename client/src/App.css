@@ -93,6 +93,7 @@ ul {
 
 li {
   border: 1px solid black;
+  border-radius:28px;
   padding: 10px;
   margin-bottom: 10px;
 }
@@ -114,4 +115,26 @@ img {
 p {
   max-width: 400px;
   font-size: 12px;
+}
+
+.button {
+	background-color:#47B5FF;
+	border-radius:28px;
+	border:1px solid #47B5FF;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:10px 15px;
+	text-decoration:none;
+  margin: 10px;
+}
+.button:hover {
+	background-color:#1363DF;
+  border:1px solid #1363DF;
+}
+.button:active {
+	position:relative;
+	top:1px;
 }
