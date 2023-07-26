@@ -4,7 +4,7 @@ import { useGetUserID } from "../hooks/useGetUserID";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 
-export const CreateRecipe = () => {
+export const Booking = () => {
   const userID = useGetUserID();
   const [cookies, _] = useCookies(["access_token"]);
   const [recipe, setRecipe] = useState({
@@ -55,17 +55,57 @@ export const CreateRecipe = () => {
   };
 
   return (
-    <div className="create-recipe">
-      <h2>Create Recipe</h2>
+    <div className="booking">
+      <h2>Vaccine Booking</h2>
+      <h3>Enter Your Details</h3>
+      <h4>About you</h4>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={recipe.name}
-          onChange={handleChange}
-        />
+        <label htmlFor="title">Title</label>
+        <select className="select" id="title">
+          <option disabled="" selected="" value="null"></option>
+          <option value="Mr">Mr</option>
+          <option value="Mrs">Mrs</option>
+          <option value="Ms">Ms</option>
+          <option value="Miss">Miss</option>
+          <option value="Dr">Dr</option>
+        </select>
+
+        <div className="name-container">
+          <div className="name-input">
+            <label htmlFor="firstName">First Name</label>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              value={recipe.firstName}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="name-input">
+            <label htmlFor="lastName">Surname</label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              value={recipe.lastName}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" class="date-field"></input>
+
+        <label htmlFor="gender">Gender Identity</label>
+        <select className="select" id="gender">
+          <option disabled="" selected="" value="null"></option>
+          <option value="Mr">Male(including trans man)</option>
+          <option value="Mrs">Female(including trans woman)</option>
+          <option value="Ms">Non-binary</option>
+          <option value="Miss">Other</option>
+          <option value="Dr">Prefer not to say</option>
+        </select>
+
         <label htmlFor="description">Description</label>
         <textarea
           id="description"
@@ -109,7 +149,9 @@ export const CreateRecipe = () => {
           value={recipe.cookingTime}
           onChange={handleChange}
         />
-        <button type="submit" className="button">Create Recipe</button>
+        <button type="submit" className="button">
+          Create Recipe
+        </button>
       </form>
     </div>
   );

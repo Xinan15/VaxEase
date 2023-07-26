@@ -69,22 +69,49 @@ a {
   font-size: 25px;
 }
 
-.create-recipe {
+.booking {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
+  align-items: left;
   padding: 20px;
   background-color: white;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   margin: 20px;
-  width: 400px;
+  width: 800px;
 }
-.create-recipe form {
+.booking form {
   display: flex;
   flex-direction: column;
 }
+.name-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.name-input {
+  margin-right: 100px;
+}
+
+.name-input label {
+  display: block;
+  text-align: left;
+}
+
+.select{
+  width:100px;
+  height:30px;
+}
+
+.date-field {
+  width: 200px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -98,8 +125,8 @@ li {
   margin-bottom: 10px;
 }
 
-h2 {
-  margin-top: 0;
+h2, h3, h4{
+  margin: 5px 5px 5px 0;
 }
 
 img {
@@ -137,4 +164,624 @@ p {
 .button:active {
 	position:relative;
 	top:1px;
+}
+.body {
+  font-family: "nevis";
+  background-image: url("https://qtxasset.com/fiercepharma/1613598427/Coronavirus%20vaccine.jpg?NpvxFyj0ZwJBsp3Um5VkJrL9sGTMtSON");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 500px;
+  color: whitesmoke;
+  display: flex;
+}
+
+.pic {
+  object-fit: contain;
+  width: 250px;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+.body-left {
+  text-align: center;
+  margin: 130px 0;
+  flex: 0.5;
+}
+
+.body-right {
+  background-color: rgba(0, 0, 0, 0.712);
+  flex: 0.5;
+  padding: 130px 0;
+  text-align: center;
+}
+
+.register {
+  font-family: "nevis";
+  outline: none;
+  background-color: #23689b;
+  padding: 20px 40px;
+  color: whitesmoke;
+  font-weight: 800;
+  border: 2px solid #23689b;
+  font-size: 1.05rem;
+  border-radius: 400px;
+  box-shadow: 3px 0 5px rgba(0, 0, 0, 0.452);
+  margin: 50px;
+  cursor: pointer;
+}
+
+.register:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+.topbar {
+  font-family: "nevis";
+  display: flex;
+  justify-content: space-between;
+  background-color: whitesmoke;
+  padding: 20px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.app-logo {
+  object-fit: contain;
+  height: 38px;
+  margin-right: 10px;
+  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.16);
+  border-radius: 50%;
+}
+
+.tabs {
+  display: flex;
+  align-items: center;
+}
+
+.tabs > * {
+  margin: 0 11px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.tabs > *:hover {
+  color: #6e7f94;
+}
+
+.stats {
+  font-family: "nevis";
+  display: flex;
+  height: 350px;
+  width: 100vw;
+}
+
+.stats-left {
+  flex: 0.5;
+  width: 50vw;
+  background-color: #fff;
+}
+
+.stats-heading {
+  font-family: "nevis";
+  text-align: center;
+  color: rgb(82, 82, 82);
+  padding: 25px 0;
+}
+
+.stats-right {
+  width: 50vw;
+  flex: 0.5;
+  text-align: center;
+  background-color: #eefdfe;
+}
+
+.stats-1,
+.stats-2 {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.vacbars {
+  font-family: "nevis";
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+
+.hide {
+  color: #b80049;
+  font-weight: 700;
+  font-size: 0rem;
+}
+
+
+
+.footer {
+  font-family: "nevis";
+  text-align: center;
+  height: 50px;
+}
+
+.footer-txt {
+  color: #fff;
+  padding: 20px;
+  background-color: #15324e;
+  font-weight: 700;
+}
+
+.shownearbybtn {
+  padding: 15px;
+  margin-right: 20px;
+  outline: none;
+  background-color: black;
+  color: white;
+  border-radius: 25px;
+  border: none;
+  font-weight: 700;
+  width: 200px;
+  text-align: center;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.418);
+  cursor: pointer;
+}
+
+.shownearbybtn:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+  box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.418);
+}
+
+.card-links {
+  padding-right: 20px;
+  color: rgb(119, 49, 184);
+}
+
+.card-links:hover {
+  color: rgb(85, 12, 85);
+}
+
+.desc {
+  margin-top: 5%;
+}
+
+.hospital-card {
+  box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.247);
+  margin: 60px 25px 50px;
+  height: 320px;
+  /* padding: 50px 45px; */
+  border-radius: 20px;
+  color: white;
+  display: flex;
+}
+
+.gd {
+  margin-top: 30px;
+  background-color: #1f441e;
+}
+
+.hcleft{
+  flex: 0.9;
+  background-color: #2b2e4a;
+  padding: 50px 45px;
+}
+
+.hcright{
+  flex: 0.1;
+  background-color: #e8e8e8;
+  padding: 50px 45px;
+}
+
+.forbtn {
+  text-align: right;
+}
+
+.admin-hospi {
+  display: flex;
+  justify-content: space-between;
+}
+
+.del-btn {
+  width: 100px;
+  height: 30px;
+  outline: none;
+  border: none;
+  color: white;
+  background-color: black;
+  font-weight: 700;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.226);
+  margin-left: 25px;
+}
+
+.del-btn:hover,
+.edit-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 3px 6px 6px rgba(0, 0, 0, 0.226);
+  transition: 0.3s;
+}
+
+.addbtn {
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  color: white;
+  background-color: #440a67;
+  font-size: 2.3rem;
+  padding: 0 10.5px;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.226);
+  cursor: pointer;
+  margin-right: 30px;
+}
+
+.addbtn:hover {
+  transform: scale(1.08) rotate(180deg);
+  transition: 0.3s;
+}
+
+.edit-btn {
+  width: 100px;
+  height: 30px;
+  outline: none;
+  border: none;
+  background-color: white;
+  color: black;
+  font-weight: 700;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.226);
+}
+
+.success {
+  text-align: center;
+  padding: 60px;
+}
+
+.succ {
+  margin-top: 30px;
+}
+
+.tabs-options {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.searchBox {
+  display: flex;
+  justify-content: space-between;
+  width: 450px;
+  margin: 60px 0;
+  background: #c2c2c2;
+  height: 50px;
+  border-radius: 40px;
+  padding: 10px;
+  transition: width 0.3s;
+}
+
+.searchButton {
+  color: white;
+  width: 30px;
+  height: 30px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.searchInput {
+  border: none;
+  background: none;
+  background-color: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: black;
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 30px;
+  width: 400px;
+  padding-left: 15px;
+}
+
+/* .searchBox:hover {
+  width: 700px;
+}
+
+.searchBox:hover > .searchInput {
+  width: 650px;
+}  */
+
+.dh {
+  margin: 20px 50px;
+}
+
+.labelbox {
+  text-align: center;
+}
+
+.btnsubmit {
+  background-color: #20bfaa00;
+  border: none;
+  outline: none;
+}
+
+.status {
+  padding: 10px 50px;
+  background-color: #e8e8e8;
+}
+
+.status-h1,
+.status-p {
+  margin-left: 18px;
+}
+
+.status-footer {
+  position: fixed;
+  bottom: 6px;
+  width: 100vw;
+}
+
+.status-h1 {
+  margin-top: 110px;
+  margin-bottom: 20px;
+}
+
+.status-right {
+  overflow: hidden;
+}
+
+.status-img {
+  object-fit: contain;
+}
+
+.registration-status {
+  display: flex;
+}
+
+.details > p {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: rgb(216, 216, 216);
+}
+
+.details {
+  background-color: #343f56;
+  width: 80vw;
+  margin: 35px auto;
+  padding: 33px 65px;
+  border-radius: 35px;
+  color: white;
+  box-shadow: 4px 6px 18px rgba(0, 0, 0, 0.664);
+}
+
+.detailsp > b {
+  font-size: 1.15rem;
+  color: white;
+  margin-right: 10px;
+}
+
+.disc {
+  text-align: center;
+}
+
+.start {
+  margin-top: 10px;
+}
+
+.vaccine-img {
+  object-fit: contain;
+  width: 210px;
+  position: absolute;
+  right: 1%;
+  top: 15%;
+}
+
+.vaccine-name {
+  text-align: center;
+}
+
+.banner {
+  position: absolute;
+  background-color: #e84545;
+  padding: 20px 30px;
+  top: 45%;
+  left: 15px;
+  border-radius: 8px;
+  box-shadow: 4px 6px 18px rgba(0, 0, 0, 0.144);
+}
+
+.details-bg {
+  background-color: #e8e8e8;
+  padding: 20px 0;
+}
+
+.cancel {
+  float: right;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 0.9rem;
+  padding: 16px;
+  /* margin-top: 30px; */
+  border-radius: 25px;
+  font-weight: 500;
+  box-shadow: 4px 6px 18px rgba(0, 0, 0, 0.144);
+  cursor: pointer;
+  margin-right: 10px;
+  width: 165px;
+  text-align: center;
+}
+
+.cancel:hover {
+  transform: scale(1.03);
+  transition: 0.3s;
+}
+
+.user-details {
+  margin: 3.3%;
+  border: 12px;
+  box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.144);
+}
+
+.adminheading {
+  margin-right: 5px;
+  font-size: 1.05rem;
+}
+
+.adminrow {
+  margin: 1% 0;
+}
+
+.vaccine-info {
+  display: flex;
+  margin: 40px 35px 80px;
+  box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.247);
+}
+
+.info-left {
+  flex: 0.8;
+  background-color: #03506f;
+  padding-right: 20px;
+  padding: 50px;
+  color: whitesmoke;
+}
+
+.admin-btns {
+  padding-top: 2%;
+}
+
+.info-right {
+  background-color: #f6f5f5;
+  flex: 0.2;
+  padding: 10px;
+}
+
+.pb {
+  position: relative;
+  left: 20%;
+  top: 15%;
+}
+
+.vname {
+  margin-bottom: 20px;
+}
+
+.info-img {
+  object-fit: contain;
+  width: 250px;
+}
+
+.vstatus {
+  margin-top: 30px;
+}
+
+.vaccine-btn {
+  text-align: right;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.admin-btns-v {
+  float: right;
+  display: none;
+}
+
+.info-left:hover > .admin-btns-v {
+  display: block;
+}
+
+.user-details {
+  display: flex;
+}
+
+.dleft {
+  flex: 0.5;
+  background-color: #03506F;
+  padding-right: 20px;
+  padding: 45px;
+  color: whitesmoke;
+}
+
+.dright {
+  flex: 0.5;
+  padding: 45px;
+  background-color: #F6F5F5;
+}
+
+.d {
+  margin-bottom: 5%;
+}
+
+.hch1 {
+  display: flex;
+}
+
+.hcd {
+  margin-top: 1%;
+  margin-bottom: 1%;
+  font-size: 1.1rem;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  margin: 20px;
+}
+
+.afh {
+  font-size: 1.11rem;
+}
+
+.frow {
+  margin: 5% 0;
+}
+
+.feedbackbtn {
+  outline: none;
+  border: none;
+  background-color: #393e46;
+  color: white;
+  position: absolute;
+  top: 94px;
+  left: 50px;
+  padding: 18px;
+  font-size: 0.9rem;
+  border-radius: 25px;
+  box-shadow: 4px 2px 4px rgba(0, 0, 0, 0.247);
+  cursor: pointer;
+}
+
+.feedbackbtn:hover {
+  transform: scale(1.02);
+  transition: 0.3s;
+}
+
+.feedbacks {
+  text-align: center;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.grid-item {
+  background-color: #14274e;
+  padding: 3% 1% 3% 5%;
+  border: 10px solid #9ba4b4;
+  font-size: 1.1rem;
+  margin: 20px;
+  color: white;
+  border-radius: 8px;
+  overflow: scroll;
+  box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.247);
 }
