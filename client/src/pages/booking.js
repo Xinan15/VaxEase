@@ -3,6 +3,7 @@ import axios from "axios";
 import { useGetUserID } from "../hooks/useGetUserID";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import bookingcss from './bookingCSS.module.css';
 
 export const Booking = () => {
   const userID = useGetUserID();
@@ -59,7 +60,7 @@ export const Booking = () => {
   const dateString = today.toISOString().split("T")[0];
 
   return (
-    <div className="booking">
+    <div className={bookingcss.bookingContainer}>
       <h2>Vaccine Booking</h2>
       <h3>Enter Your Details</h3>
       <h4>About you</h4>
