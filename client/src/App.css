@@ -50,18 +50,6 @@ input {
   border-radius: 5px;
 }
 
-.navbar {
-  margin: 0;
-  width: 100%;
-  height: 80px;
-  background-color: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-decoration: none;
-}
-
 a {
   color: white;
   text-decoration: none;
@@ -81,10 +69,12 @@ a {
   margin: 20px;
   width: 800px;
 }
+
 .booking form {
   display: flex;
   flex-direction: column;
 }
+
 .name-container {
   display: flex;
   justify-content: flex-start;
@@ -99,9 +89,9 @@ a {
   text-align: left;
 }
 
-.select{
-  width:100px;
-  height:30px;
+.select {
+  width: 100px;
+  height: 30px;
 }
 
 .date-field {
@@ -120,12 +110,14 @@ ul {
 
 li {
   border: 1px solid black;
-  border-radius:28px;
+  border-radius: 28px;
   padding: 10px;
   margin-bottom: 10px;
 }
 
-h2, h3, h4{
+h2,
+h3,
+h4 {
   margin: 5px 5px 5px 0;
 }
 
@@ -142,29 +134,33 @@ img {
 p {
   max-width: 400px;
   font-size: 12px;
+  color:wheat;
 }
 
 .button {
-	background-color:#47B5FF;
-	border-radius:28px;
-	border:1px solid #47B5FF;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:17px;
-	padding:10px 15px;
-	text-decoration:none;
+  background-color: #47B5FF;
+  border-radius: 28px;
+  border: 1px solid #47B5FF;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 10px 15px;
+  text-decoration: none;
   margin: 10px;
 }
+
 .button:hover {
-	background-color:#1363DF;
-  border:1px solid #1363DF;
+  background-color: #1363DF;
+  border: 1px solid #1363DF;
 }
+
 .button:active {
-	position:relative;
-	top:1px;
+  position: relative;
+  top: 1px;
 }
+
 .body {
   font-family: "nevis";
   background-image: url("https://qtxasset.com/fiercepharma/1613598427/Coronavirus%20vaccine.jpg?NpvxFyj0ZwJBsp3Um5VkJrL9sGTMtSON");
@@ -216,13 +212,21 @@ p {
   transition: 0.3s;
 }
 
-.topbar {
+.navbar {
   font-family: "nevis";
   display: flex;
   justify-content: space-between;
-  background-color: whitesmoke;
   padding: 20px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  margin: 0;
+  width: 100%;
+  height: 80px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-decoration: none;
 }
 
 .logo {
@@ -241,15 +245,16 @@ p {
 .tabs {
   display: flex;
   align-items: center;
+  color: wheat;
 }
 
-.tabs > * {
+.tabs>* {
   margin: 0 11px;
   font-size: 0.85rem;
   cursor: pointer;
 }
 
-.tabs > *:hover {
+.tabs>*:hover {
   color: #6e7f94;
 }
 
@@ -373,13 +378,13 @@ a {
   background-color: #1f441e;
 }
 
-.hcleft{
+.hcleft {
   flex: 0.9;
   background-color: #2b2e4a;
   padding: 50px 45px;
 }
 
-.hcright{
+.hcright {
   flex: 0.1;
   background-color: #e8e8e8;
   padding: 50px 45px;
@@ -550,7 +555,7 @@ a {
   display: flex;
 }
 
-.details > p {
+.details>p {
   margin-bottom: 10px;
   font-size: 1.1rem;
   color: rgb(216, 216, 216);
@@ -566,7 +571,7 @@ a {
   box-shadow: 4px 6px 18px rgba(0, 0, 0, 0.664);
 }
 
-.detailsp > b {
+.detailsp>b {
   font-size: 1.15rem;
   color: white;
   margin-right: 10px;
@@ -698,7 +703,7 @@ a {
   display: none;
 }
 
-.info-left:hover > .admin-btns-v {
+.info-left:hover>.admin-btns-v {
   display: block;
 }
 

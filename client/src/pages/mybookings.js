@@ -7,7 +7,7 @@ const linkstyle = {
   textDecoration: "none",
 };
 
-export const Home = () => {
+export const MyBookings = () => {
   const [recipes, setRecipes] = useState([]);
   const [savedRecipes, setSavedRecipes] = useState([]);
 
@@ -55,26 +55,26 @@ export const Home = () => {
   return (
     <div>
       <h1>Recipes</h1>
-
-      <>
-      <div className="body">
-        <div className="body-left">
-          <img
-            src="https://cdn.discordapp.com/attachments/752888354076360706/818724911807594536/logowb.png"
-            alt="main-img"
-            className="pic"
-          />
-        </div>
-        <div className="body-right">
-          <h1 className="head">
-            COVID-19 <br /> VACCINE BOOKING PLATFORM
-          </h1>
-          <Link to="/register" style={linkstyle}>
-            <button className="register">REGISTER YOURS</button>
-          </Link>
-        </div>
-      </div>
-    </>
+      <ul>
+        {recipes.map((recipe) => (
+          <li key={recipe._id}>
+            <div>
+              <h2>{recipe.name}</h2>
+              <button className="button"
+                onClick={() => saveRecipe(recipe._id)}
+                disabled={isRecipeSaved(recipe._id)}
+              >
+                {isRecipeSaved(recipe._id) ? "Saved" : "Save"}
+              </button>
+            </div>
+            <div className="instructions">
+              <p>{recipe.instructions}</p>
+            </div>
+            <img src={recipe.imageUrl} alt={recipe.name} />
+            <p>Cooking Time: {recipe.cookingTime} minutes</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

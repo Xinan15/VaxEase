@@ -54,6 +54,10 @@ export const Booking = () => {
     }
   };
 
+  const today = new Date();
+
+  const dateString = today.toISOString().split("T")[0];
+
   return (
     <div className="booking">
       <h2>Vaccine Booking</h2>
@@ -82,7 +86,7 @@ export const Booking = () => {
             />
           </div>
           <div className="name-input">
-            <label htmlFor="lastName">Surname</label>
+            <label htmlFor="lastName">Last Name</label>
             <input
               type="text"
               id="lastName"
@@ -106,14 +110,95 @@ export const Booking = () => {
           <option value="Dr">Prefer not to say</option>
         </select>
 
-        <label htmlFor="description">Description</label>
-        <textarea
-          id="description"
-          name="description"
-          value={recipe.description}
+        <h4>About you</h4>
+
+        <label htmlFor="firstName">Phone Number</label>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          value={recipe.firstName}
           onChange={handleChange}
-        ></textarea>
-        <label htmlFor="ingredients">Ingredients</label>
+        />
+        <label htmlFor="firstName">Email</label>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          value={recipe.firstName}
+          onChange={handleChange}
+        />
+
+        <label htmlFor="firstName">City</label>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          value={recipe.firstName}
+          onChange={handleChange}
+        />
+        <label htmlFor="firstName">Postcode</label>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          value={recipe.firstName}
+          onChange={handleChange}
+        />
+
+        <label htmlFor="firstName">Address line 1</label>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          value={recipe.firstName}
+          onChange={handleChange}
+        />
+        <label htmlFor="firstName">Address line 2</label>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          value={recipe.firstName}
+          onChange={handleChange}
+        />
+
+        <h4>I would like an appointment for:</h4>
+
+        <label htmlFor="title">Type</label>
+        <select className="select" id="title">
+          <option disabled="" selected="" value="null"></option>
+          <option value="Mr">Mr</option>
+          <option value="Mrs">Mrs</option>
+          <option value="Ms">Ms</option>
+          <option value="Miss">Miss</option>
+          <option value="Dr">Dr</option>
+        </select>
+
+        <label htmlFor="dob">Date</label>
+        <input
+          type="date"
+          id="dob"
+          name="dob"
+          className="date-field"
+          min={dateString}
+        ></input>
+
+        <label htmlFor="title">Slot</label>
+        <select className="select" id="title">
+          <option disabled="" selected="" value="null"></option>
+          <option value="Mr">09:00 To 09:30</option>
+          <option value="Mrs">10:30 To 11:00</option>
+          <option value="Ms">12:00 To 12:30</option>
+          <option value="Miss">13:30 To 14:00</option>
+          <option value="Dr">15:00 To 15:30</option>
+          <option value="Dr">16:30 To 17:00</option>
+        </select>
+
+        <label htmlFor="ingredients">
+          Do you have any concerns or information you would like to share with
+          us?
+        </label>
         {recipe.ingredients.map((ingredient, index) => (
           <input
             key={index}
@@ -124,33 +209,11 @@ export const Booking = () => {
           />
         ))}
         <button type="button" className="button" onClick={handleAddIngredient}>
-          Add Ingredient
+          Add Information
         </button>
-        <label htmlFor="instructions">Instructions</label>
-        <textarea
-          id="instructions"
-          name="instructions"
-          value={recipe.instructions}
-          onChange={handleChange}
-        ></textarea>
-        <label htmlFor="imageUrl">Image URL</label>
-        <input
-          type="text"
-          id="imageUrl"
-          name="imageUrl"
-          value={recipe.imageUrl}
-          onChange={handleChange}
-        />
-        <label htmlFor="cookingTime">Cooking Time (minutes)</label>
-        <input
-          type="number"
-          id="cookingTime"
-          name="cookingTime"
-          value={recipe.cookingTime}
-          onChange={handleChange}
-        />
+
         <button type="submit" className="button">
-          Create Recipe
+          Submit
         </button>
       </form>
     </div>

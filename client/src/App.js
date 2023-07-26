@@ -5,8 +5,7 @@ import { Navbar } from "./components/navbar";
 import { Auth } from "./pages/auth";
 import { Booking } from "./pages/booking";
 import { Home } from "./pages/home";
-import { SavedRecipes } from "./pages/saved-recipes";
-
+import { MyBookings } from "./pages/mybookings";
 function App() {
   return (
     <div className="App">
@@ -15,8 +14,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/booking" element={<Booking />} />
-          <Route path="/saved-recipes" element={<SavedRecipes />} />
+          <Route path="/mybookings" element={<MyBookings />} />
           <Route path="/auth" element={<Auth />} />
+          <Route path="/newpage" element={
+          <>
+          
+          </>} />
         </Routes>
       </Router>
     </div>

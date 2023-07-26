@@ -1,9 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
-const linkstyle = {
-  textDecoration: "none",
-};
+
 
 export const Navbar = () => {
   const [cookies, setCookies] = useCookies(["access_token"]);
@@ -15,33 +13,33 @@ export const Navbar = () => {
     navigate("/auth");
   };
   return (
-    <div className="topbar">
+    <div className="navbar">
       <div className="logo">
         <img
           src="https://cdn.discordapp.com/attachments/752888354076360706/818719631156969502/logobw.png"
           alt="vaxtrail logo"
           className="app-logo"
         />
-        <Link to="/" style={linkstyle}>
+        <Link to="/">
           <h3 className="brand">VaxTrail</h3>
         </Link>
       </div>
 
       <div className="tabs">
-        <Link to="/" style={linkstyle}>
+        <Link to="/">
           <p className="tab-options">Home</p>
         </Link>
 
-        <Link to="/booking" style={linkstyle}>
+        <Link to="/booking">
           <p className="tab-options">Booking</p>
         </Link>
 
-        <Link to="/saved-recipes" style={linkstyle}>
-          <p className="tab-options">Saved Recipes</p>
+        <Link to="/mybookings">
+          <p className="tab-options">My Bookings</p>
         </Link>
 
         {!cookies.access_token ? (
-          <Link to="/auth" style={linkstyle}>
+          <Link to="/auth">
             <p className="tab-options">Login/Register</p>
           </Link>
         ) : (
