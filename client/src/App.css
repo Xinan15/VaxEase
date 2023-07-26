@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   padding: 0;
 }
@@ -33,13 +33,13 @@ body {
 label {
   font-weight: bold;
   margin-bottom: 5px;
-}
-
+} */
+/* 
 input {
   padding: 10px;
   font-size: 16px;
   border-radius: 5px;
-}
+} */
 
 /* a {
   color: white;
@@ -47,7 +47,7 @@ input {
   margin: 10px;
   font-size: 25px;
 } */
-
+/* 
 .booking {
   display: flex;
   flex-direction: column;
@@ -83,8 +83,8 @@ input {
 .button:active {
   position: relative;
   top: 1px;
-}
-
+} */
+/* 
 .body {
   font-family: "nevis";
   background-image: url("https://qtxasset.com/fiercepharma/1613598427/Coronavirus%20vaccine.jpg?NpvxFyj0ZwJBsp3Um5VkJrL9sGTMtSON");
@@ -94,4 +94,4 @@ input {
   height: 500px;
   color: whitesmoke;
   display: flex;
-}
+} */
