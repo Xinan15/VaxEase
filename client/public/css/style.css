@@ -347,6 +347,10 @@ header .intro-text {
 #services p {
   color: rgba(255, 255, 255, 0.75);
 }
+#services a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: underline;
+}
 #services .service-desc {
   margin-bottom: 40px;
 }
