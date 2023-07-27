@@ -1,77 +1,88 @@
 import React, { useEffect, useState } from "react";
 import { useGetUserID } from "../hooks/useGetUserID";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
-
-const linkstyle = {
-  textDecoration: "none",
-};
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 
 export const MyBookings = () => {
-  const [recipes, setRecipes] = useState([]);
-  const [savedRecipes, setSavedRecipes] = useState([]);
+  const [cookies] = useCookies(["access_token"]);
+  return (
+    <>
+      {cookies.access_token ? (
+        <div className="booking">
+          <AllBookings />
+        </div>
+      ) : (
+        <Alert />
+      )}
+    </>
+  );
+};
+export const Alert = () => {
+  const navigate = useNavigate();
+  return (
+    <div className={alert}>
+      <h1>Please Login to Book</h1>
+      <button onClick={() => navigate("/auth")}>Login</button>
+    </div>
+  );
+};
+
+export const AllBookings = () => {
+  // All Bookings
+  const [allBookings, setAllBookings] = useState([]);
 
   const userID = useGetUserID();
 
   useEffect(() => {
-    const fetchRecipes = async () => {
+    const fetchAllBookings = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/recipes");
-        setRecipes(response.data);
+        const response = await axios.get("http://localhost:3001/bookings");
+        setAllBookings(response.data);
       } catch (err) {
         console.log(err);
       }
     };
 
-    const fetchSavedRecipes = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost:3001/recipes/savedRecipes/ids/${userID}`
-        );
-        setSavedRecipes(response.data.savedRecipes);
-      } catch (err) {
-        console.log(err);
-      }
-    };
+    // const fetchMyBookings = async () => {
+    //   try {
+    //     const response = await axios.get(
+    //       `http://localhost:3001/bookings/savedBookings/ids/${userID}`
+    //     );
+    //     setMyBookings(response.data.savedBookings);
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // };
 
-    fetchRecipes();
-    fetchSavedRecipes();
+    fetchAllBookings();
+    // fetchMyBookings();
   }, []);
 
-  const saveRecipe = async (recipeID) => {
-    try {
-      const response = await axios.put("http://localhost:3001/recipes", {
-        recipeID,
-        userID,
-      });
-      setSavedRecipes(response.data.savedRecipes);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const isRecipeSaved = (id) => savedRecipes.includes(id);
-
   return (
-    <div>
-      <h1>Recipes</h1>
+    <div className="bookingContainer">
+      <h1>Bookings</h1>
       <ul>
-        {recipes.map((recipe) => (
-          <li key={recipe._id}>
+        {allBookings.map((booking) => (
+          <li key={booking._id}>
             <div>
-              <h2>{recipe.name}</h2>
-              <button className="button"
-                onClick={() => saveRecipe(recipe._id)}
-                disabled={isRecipeSaved(recipe._id)}
-              >
-                {isRecipeSaved(recipe._id) ? "Saved" : "Save"}
-              </button>
+              <h2>{booking.title}</h2>
+              <h2>{booking.fname}</h2>
+              <h2>{booking.lname}</h2>
+              <h2>{booking.dob}</h2>
+              <h2>{booking.gender}</h2>
+              <h2>{booking.phone}</h2>
+              <h2>{booking.email}</h2>
+              <h2>{booking.city}</h2>
+              <h2>{booking.postcode}</h2>
+              <h2>{booking.address1}</h2>
+              <h2>{booking.address2}</h2>
+              <h2>{booking.type}</h2>
+              <h2>{booking.date}</h2>
+              <h2>{booking.slot}</h2>
+              <h2>{booking.info}</h2>
             </div>
-            <div className="instructions">
-              <p>{recipe.instructions}</p>
-            </div>
-            <img src={recipe.imageUrl} alt={recipe.name} />
-            <p>Cooking Time: {recipe.cookingTime} minutes</p>
+            <p>End</p>
           </li>
         ))}
       </ul>

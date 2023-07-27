@@ -24,7 +24,7 @@ export const Booking = () => {
 export const Alert = () => {
   const navigate = useNavigate();
   return (
-    <div className={bookingcss.alert}>
+    <div className={alert}>
       <h1>Please Login to Book</h1>
       <button onClick={() => navigate("/auth")}>Login</button>
     </div>
