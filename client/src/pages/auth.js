@@ -4,7 +4,6 @@ import axios from "axios";
 // useCookies is to access the cookies
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
-import authcss from "./authCSS.module.css";
 
 export const Auth = () => {
   return (

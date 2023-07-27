@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 
+
 export const Navbar = () => {
   const [cookies, setCookies] = useCookies(["access_token"]);
   const navigate = useNavigate();
@@ -15,6 +16,29 @@ export const Navbar = () => {
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'smooth';
   }, []);
+
+  // Function: Navigate To Contact
+  const navigateToContact = (e) => {
+    e.preventDefault();  // Prevent the default link click action
+    navigate('/');  // Navigate to the home page
+
+    // After navigating, scroll to the contact section
+    setTimeout(() => {
+      const contactSection = document.querySelector('#contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);  // Adjust this delay as needed
+  };
+
+  // Function: Navigate To Home Top
+  const navigateToTop = (e) => {
+    e.preventDefault();
+    navigate('/');
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
+  };
 
   return (
     <nav id="menu" className="navbar navbar-default navbar-fixed-top">
@@ -32,7 +56,7 @@ export const Navbar = () => {
           <ul className="nav navbar-nav navbar-right">
             <li>
               <a>
-                <Link to="/" style={{ color:'#555' }}>Home</Link>
+                <Link to="/" onClick={navigateToTop} style={{ color:'#555' }}>Home</Link>
               </a>
             </li>
             <li>
@@ -47,7 +71,7 @@ export const Navbar = () => {
               </a>
             </li>
             <li>
-              <a href="/#contact">Contact</a>
+              <a to="#contact" onClick={navigateToContact}>Contact</a>
             </li>
 
             <li>

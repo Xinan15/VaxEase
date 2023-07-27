@@ -6,6 +6,28 @@ import { useCookies } from "react-cookie";
 import bookingcss from './bookingCSS.module.css';
 
 export const Booking = () => {
+
+  const [cookies] = useCookies(["access_token"]);
+
+  return (
+    <>
+      {cookies.access_token ? 
+      <div className="booking"><BookingForm /></div> : <Alert />}
+    </>
+  );
+};
+
+export const Alert = () => {
+  const navigate = useNavigate();
+  return (
+    <div className={bookingcss.alert}>
+      <h1>Please Login to Book</h1>
+      <button onClick={() => navigate("/auth")}>Login</button>
+    </div>
+  );
+};
+
+export const BookingForm = () => {
   const userID = useGetUserID();
   const [cookies, _] = useCookies(["access_token"]);
   const [recipe, setRecipe] = useState({
@@ -60,20 +82,24 @@ export const Booking = () => {
   const dateString = today.toISOString().split("T")[0];
 
   return (
-    <div className={bookingcss.bookingContainer}>
+    <div className="bookingContainer">
       <h2>Vaccine Booking</h2>
       <h3>Enter Your Details</h3>
       <h4>About you</h4>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="title">Title</label>
-        <select className="select" id="title">
+
+        <div className="mb-3">
+
+        <label htmlFor="title" className="form-label">Title</label>
+        <select className="select form-select" id="title">
           <option disabled="" selected="" value="null"></option>
-          <option value="Mr">Mr</option>
-          <option value="Mrs">Mrs</option>
-          <option value="Ms">Ms</option>
-          <option value="Miss">Miss</option>
-          <option value="Dr">Dr</option>
+          <option>Mr</option>
+          <option>Mrs</option>
+          <option>Ms</option>
+          <option>Miss</option>
+          <option>Dr</option>
         </select>
+        </div>
 
         <div className="name-container">
           <div className="name-input">
