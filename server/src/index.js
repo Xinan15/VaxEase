@@ -6,6 +6,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import { userRouter } from "./routes/users.js";
 import { recipesRouter } from "./routes/recipes.js";
+import { bookingsRouter } from "./routes/bookings.js";
 import dotenv from "dotenv";
 dotenv.config();
 const app = express();
@@ -16,6 +17,7 @@ app.use(cors());
 
 app.use("/auth", userRouter);
 app.use("/recipes", recipesRouter);
+app.use("/bookings", bookingsRouter);
 
 mongoose.connect(process.env.SECRET_KEY, {
   useNewUrlParser: true,

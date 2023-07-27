@@ -1,19 +1,26 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
+
 const BookingsSchema = new mongoose.Schema({
-  title: { type: Object },
-  fname: { type: String },
-  lname: { type: String },
-  dob: { type: String },
-  gender: { type: String },
-  phone: { type: String },
-  email: { type: String },
-  city: { type: String },
-  postcode: { type: String },
-  address1: { type: String },
+  title: { type: Object, required: true, },
+  fname: { type: String, required: true, },
+  lname: { type: String, required: true, },
+  dob: { type: String, required: true, },
+  gender: { type: String, required: true, },
+  phone: { type: String, required: true, },
+  email: { type: String, required: true, },
+  city: { type: String, required: true, },
+  postcode: { type: String, required: true, },
+  address1: { type: String, required: true, },
   address2: { type: String },
-  type: { type: Object },
-  date: { type: String },
-  slot: { type: Object },
+  type: { type: Object, required: true, },
+  date: { type: String, required: true, },
+  slot: { type: Object, required: true, },
+  info: { type: Array, required: true, },
+  userOwner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
 });
 
 export const BookingsModel = mongoose.model("Bookings", BookingsSchema);

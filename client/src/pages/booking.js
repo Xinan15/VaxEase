@@ -3,16 +3,20 @@ import axios from "axios";
 import { useGetUserID } from "../hooks/useGetUserID";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
-import bookingcss from './bookingCSS.module.css';
+import bookingcss from "./bookingCSS.module.css";
 
 export const Booking = () => {
-
   const [cookies] = useCookies(["access_token"]);
 
   return (
     <>
-      {cookies.access_token ? 
-      <div className="booking"><BookingForm /></div> : <Alert />}
+      {cookies.access_token ? (
+        <div className="booking">
+          <BookingForm />
+        </div>
+      ) : (
+        <Alert />
+      )}
     </>
   );
 };
@@ -30,13 +34,22 @@ export const Alert = () => {
 export const BookingForm = () => {
   const userID = useGetUserID();
   const [cookies, _] = useCookies(["access_token"]);
-  const [recipe, setRecipe] = useState({
-    name: "",
-    description: "",
-    ingredients: [],
-    instructions: "",
-    imageUrl: "",
-    cookingTime: 0,
+  const [booking, setBooking] = useState({
+    title: "",
+    fname: "",
+    lname: "",
+    dob: "",
+    gender: "",
+    phone: "",
+    email: "",
+    city: "",
+    postcode: "",
+    address1: "",
+    address2: "",
+    type: "",
+    date: "",
+    slot: "",
+    info: [],
     userOwner: userID,
   });
 
@@ -44,33 +57,53 @@ export const BookingForm = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setRecipe({ ...recipe, [name]: value });
+    setBooking((prevState) => ({ ...prevState, [name]: value }));
   };
 
-  const handleIngredientChange = (event, index) => {
+  const handleInfoChange = (event, index) => {
     const { value } = event.target;
-    const ingredients = [...recipe.ingredients];
-    ingredients[index] = value;
-    setRecipe({ ...recipe, ingredients });
+    const info = [...booking.info];
+    info[index] = value;
+    setBooking({ ...booking, info });
   };
 
-  const handleAddIngredient = () => {
-    const ingredients = [...recipe.ingredients, ""];
-    setRecipe({ ...recipe, ingredients });
+  const handleAddInfo = () => {
+    const info = [...booking.info, ""];
+    setBooking({ ...booking, info });
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    if (
+      !booking.title ||
+      !booking.fname ||
+      !booking.lname ||
+      !booking.dob ||
+      !booking.gender ||
+      !booking.phone ||
+      !booking.email ||
+      !booking.city ||
+      !booking.postcode ||
+      !booking.address1 ||
+      !booking.type ||
+      !booking.date ||
+      !booking.slot
+    ) {
+      alert("All fields with * must be filled out!");
+      return;
+    }
+
     try {
       await axios.post(
-        "http://localhost:3001/recipes",
-        { ...recipe },
+        "http://localhost:3001/bookings",
+        { ...booking },
         {
           headers: { authorization: cookies.access_token },
         }
       );
 
-      alert("Recipe Created");
+      alert("Appointment Booked!");
       navigate("/");
     } catch (error) {
       console.error(error);
@@ -87,157 +120,240 @@ export const BookingForm = () => {
       <h3>Enter Your Details</h3>
       <h4>About you</h4>
       <form onSubmit={handleSubmit}>
-
         <div className="mb-3">
-
-        <label htmlFor="title" className="form-label">Title</label>
-        <select className="select form-select" id="title">
-          <option disabled="" selected="" value="null"></option>
-          <option>Mr</option>
-          <option>Mrs</option>
-          <option>Ms</option>
-          <option>Miss</option>
-          <option>Dr</option>
-        </select>
+          <label htmlFor="title" className="form-label" value={booking.title}>
+            Title*
+          </label>
+          <select
+            className="select"
+            id="title"
+            name="title"
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select...</option>
+            <option value="Mr">Mr</option>
+            <option value="Mrs">Mrs</option>
+            <option value="Ms">Ms</option>
+            <option value="Miss">Miss</option>
+            <option value="Dr">Dr</option>
+          </select>
         </div>
 
         <div className="name-container">
           <div className="name-input">
-            <label htmlFor="firstName">First Name</label>
+            <label htmlFor="fname">First Name*</label>
             <input
               type="text"
-              id="firstName"
-              name="firstName"
-              value={recipe.firstName}
+              id="fname"
+              name="fname"
+              value={booking.fname}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="name-input">
-            <label htmlFor="lastName">Last Name</label>
+            <label htmlFor="lname">Last Name*</label>
             <input
               type="text"
-              id="lastName"
-              name="lastName"
-              value={recipe.lastName}
+              id="lname"
+              name="lname"
+              value={booking.lname}
               onChange={handleChange}
+              required
             />
           </div>
         </div>
 
-        <label for="dob">Date of Birth:</label>
-        <input type="date" id="dob" name="dob" class="date-field"></input>
+        <div className="dob-container">
+          <label htmlFor="dob" value={booking.dob}>
+            Date of Birth*
+          </label>
+          <input
+            type="date"
+            id="dob"
+            name="dob"
+            max={dateString}
+            onChange={handleChange}
+            value={booking.dob}
+            required
+          ></input>
+        </div>
 
-        <label htmlFor="gender">Gender Identity</label>
-        <select className="select" id="gender">
-          <option disabled="" selected="" value="null"></option>
-          <option value="Mr">Male(including trans man)</option>
-          <option value="Mrs">Female(including trans woman)</option>
-          <option value="Ms">Non-binary</option>
-          <option value="Miss">Other</option>
-          <option value="Dr">Prefer not to say</option>
-        </select>
+        <div>
+          <label htmlFor="gender" value={booking.gender}>
+            Gender Identity*
+          </label>
+          <select
+            className="select"
+            id="gender"
+            name="gender"
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select...</option>
+            <option value="Male(including trans man)">
+              Male(including trans man)
+            </option>
+            <option value="Female(including trans woman)">
+              Female(including trans woman)
+            </option>
+            <option value="Non-binary">Non-binary</option>
+            <option value="Other">Other</option>
+            <option value="Prefer not to say">Prefer not to say</option>
+          </select>
+        </div>
 
         <h4>About you</h4>
 
-        <label htmlFor="firstName">Phone Number</label>
-        <input
-          type="text"
-          id="firstName"
-          name="firstName"
-          value={recipe.firstName}
-          onChange={handleChange}
-        />
-        <label htmlFor="firstName">Email</label>
-        <input
-          type="text"
-          id="firstName"
-          name="firstName"
-          value={recipe.firstName}
-          onChange={handleChange}
-        />
+        <div>
+          <label htmlFor="phone">Phone Number*</label>
+          <input
+            type="text"
+            id="phone"
+            name="phone"
+            value={booking.phone}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-        <label htmlFor="firstName">City</label>
-        <input
-          type="text"
-          id="firstName"
-          name="firstName"
-          value={recipe.firstName}
-          onChange={handleChange}
-        />
-        <label htmlFor="firstName">Postcode</label>
-        <input
-          type="text"
-          id="firstName"
-          name="firstName"
-          value={recipe.firstName}
-          onChange={handleChange}
-        />
+        <div>
+          <label htmlFor="email">Email*</label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            value={booking.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-        <label htmlFor="firstName">Address line 1</label>
-        <input
-          type="text"
-          id="firstName"
-          name="firstName"
-          value={recipe.firstName}
-          onChange={handleChange}
-        />
-        <label htmlFor="firstName">Address line 2</label>
-        <input
-          type="text"
-          id="firstName"
-          name="firstName"
-          value={recipe.firstName}
-          onChange={handleChange}
-        />
+        <div>
+          <label htmlFor="city">City*</label>
+          <input
+            type="text"
+            id="city"
+            name="city"
+            value={booking.city}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div>
+          <label htmlFor="postcode">Postcode*</label>
+          <input
+            type="text"
+            id="postcode"
+            name="postcode"
+            value={booking.postcode}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div>
+          <label htmlFor="address1">Address line 1*</label>
+          <input
+            type="text"
+            id="address1"
+            name="address1"
+            value={booking.address1}
+            onChange={handleChange}
+            required
+          />
+          <label htmlFor="address2">Address line 2</label>
+          <input
+            type="text"
+            id="address2"
+            name="address2"
+            value={booking.address2}
+            onChange={handleChange}
+          />
+        </div>
 
         <h4>I would like an appointment for:</h4>
 
-        <label htmlFor="title">Type</label>
-        <select className="select" id="title">
-          <option disabled="" selected="" value="null"></option>
-          <option value="Mr">Mr</option>
-          <option value="Mrs">Mrs</option>
-          <option value="Ms">Ms</option>
-          <option value="Miss">Miss</option>
-          <option value="Dr">Dr</option>
-        </select>
+        <div>
+          <label htmlFor="type" value={booking.type}>
+            Type*
+          </label>
+          <select
+            className="select"
+            id="type"
+            name="type"
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select...</option>
+            <option value="Pfizer-BioNTech 1st Dose">
+              Pfizer-BioNTech 1st Dose
+            </option>
+            <option value="Pfizer-BioNTech 2nd Dose">
+              Pfizer-BioNTech 2nd Dose
+            </option>
+            <option value="Pfizer-BioNTech 3rd Dose">
+              Pfizer-BioNTech 3rd Dose
+            </option>
+          </select>
+        </div>
 
-        <label htmlFor="dob">Date</label>
-        <input
-          type="date"
-          id="dob"
-          name="dob"
-          className="date-field"
-          min={dateString}
-        ></input>
-
-        <label htmlFor="title">Slot</label>
-        <select className="select" id="title">
-          <option disabled="" selected="" value="null"></option>
-          <option value="Mr">09:00 To 09:30</option>
-          <option value="Mrs">10:30 To 11:00</option>
-          <option value="Ms">12:00 To 12:30</option>
-          <option value="Miss">13:30 To 14:00</option>
-          <option value="Dr">15:00 To 15:30</option>
-          <option value="Dr">16:30 To 17:00</option>
-        </select>
-
-        <label htmlFor="ingredients">
-          Do you have any concerns or information you would like to share with
-          us?
-        </label>
-        {recipe.ingredients.map((ingredient, index) => (
+        <div>
+          <label htmlFor="date">Date*</label>
           <input
-            key={index}
-            type="text"
-            name="ingredients"
-            value={ingredient}
-            onChange={(event) => handleIngredientChange(event, index)}
-          />
-        ))}
-        <button type="button" className="button" onClick={handleAddIngredient}>
-          Add Information
-        </button>
+            type="date"
+            id="date"
+            name="date"
+            className="date-field"
+            min={dateString}
+            value={booking.date}
+            onChange={handleChange}
+            required
+          ></input>
+        </div>
+
+        <div>
+          <label htmlFor="slot" value={booking.slot}>
+            Slot*
+          </label>
+          <select
+            className="select"
+            id="slot"
+            name="slot"
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select...</option>
+            <option value="09:00 To 09:30">09:00 To 09:30</option>
+            <option value="10:30 To 11:00">10:30 To 11:00</option>
+            <option value="12:00 To 12:30">12:00 To 12:30</option>
+            <option value="13:30 To 14:00">13:30 To 14:00</option>
+            <option value="15:00 To 15:30">15:00 To 15:30</option>
+            <option value="16:30 To 17:00">16:30 To 17:00</option>
+          </select>
+        </div>
+
+        <h4>Additional Information</h4>
+        <div>
+          <label htmlFor="info">
+            Do you have any concerns or information you would like to share with
+            us?
+          </label>
+          {booking.info.map((info, index) => (
+            <input
+              key={index}
+              type="text"
+              name="info"
+              value={info}
+              onChange={(event) => handleInfoChange(event, index)}
+            />
+          ))}
+          <button type="button" className="button" onClick={handleAddInfo}>
+            Add Information
+          </button>
+        </div>
 
         <button type="submit" className="button">
           Submit
