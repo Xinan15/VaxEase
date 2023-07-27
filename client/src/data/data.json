@@ -19,51 +19,36 @@
       "Lorem ipsum dolor"
     ]
   },
-  "Gallery": [
+  "News": [
     {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/01-large.jpg",
-      "smallImage": "img/portfolio/01-small.jpg"
+      "title": "Statement on the antigen composition of COVID-19 vaccines",
+      "smallImage": "img/news/news1.png",
+      "link": "https://www.who.int/news/item/18-05-2023-statement-on-the-antigen-composition-of-covid-19-vaccines"
     },
     {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/02-large.jpg",
-      "smallImage": "img/portfolio/02-small.jpg"
+      "title": "mRNA Technology moves to the next phase of its development",
+      "smallImage": "img/news/news2.png",
+      "link": "https://www.who.int/news/item/20-04-2023-mrna-technology-transfer-programme-moves-to-the-next-phase-of-its-development"
     },
     {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/03-large.jpg",
-      "smallImage": "img/portfolio/03-small.jpg"
+      "title": "WHO validates 11th vaccine for COVID-19",
+      "smallImage": "img/news/news3.png",
+      "link": "https://www.who.int/news/item/19-05-2022-who-validates-11th-vaccine-for-covid-19"
     },
     {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/04-large.jpg",
-      "smallImage": "img/portfolio/04-small.jpg"
+      "title": "WHO lists 10th COVID-19 vaccine for emergency use : Nuvaxovid",
+      "smallImage": "img/news/news4.png",
+      "link": "https://www.who.int/news/item/21-12-2021-who-lists-10th-covid-19-vaccine-for-emergency-use-nuvaxovid"
     },
     {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/05-large.jpg",
-      "smallImage": "img/portfolio/05-small.jpg"
+      "title": "Leaders Make Urgent Call To Accelerate Vaccination Globally",
+      "smallImage": "img/news/news5.png",
+      "link": "https://www.who.int/news/item/14-09-2021-leaders-make-urgent-call-to-accelerate-vaccination-globally-and-in-africa"
     },
     {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/06-large.jpg",
-      "smallImage": "img/portfolio/06-small.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/07-large.jpg",
-      "smallImage": "img/portfolio/07-small.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/08-large.jpg",
-      "smallImage": "img/portfolio/08-small.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/09-large.jpg",
-      "smallImage": "img/portfolio/09-small.jpg"
+      "title": "Novavax Covid-19 vaccine recommendations for use",
+      "smallImage": "img/news/news6.jpg",
+      "link": "https://www.who.int/news/item/20-12-2021-novavax-covid-19-vaccine-recommendations-for-use"
     }
   ],
   "Services": [
@@ -132,30 +117,30 @@
   ],
   "Team": [
     {
-      "img": "img/team/01.jpg",
-      "name": "John Doe",
-      "job": "Director"
+      "img": "img/team/doc.jpg",
+      "name": "John",
+      "job": "Doctor"
     },
     {
-      "img": "img/team/02.jpg",
-      "name": "Mike Doe",
-      "job": "Senior Designer"
+      "img": "img/team/doc.jpg",
+      "name": "Mike",
+      "job": "Pharmacist"
     },
     {
-      "img": "img/team/03.jpg",
-      "name": "Jane Doe",
-      "job": "Senior Designer"
+      "img": "img/team/nurse.png",
+      "name": "Jane",
+      "job": "Nurse"
     },
     {
-      "img": "img/team/04.jpg",
-      "name": "Karen Doe",
-      "job": "Project Manager"
+      "img": "img/team/nurse.png",
+      "name": "Karen",
+      "job": "Nurse"
     }
   ],
   "Contact": {
-    "address": "4321 California St, San Francisco, CA 12345 ",
-    "phone": "+1 123 456 1234",
-    "email": "info@company.com",
+    "address": "Queen Mary University of London Mile End Road",
+    "phone": "+44 7911 123456",
+    "email": "info@qmul.com",
     "facebook": "fb.com",
     "twitter": "twitter.com",
     "youtube": "youtube.com"

@@ -1,6 +1,7 @@
 import { useState } from "react";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 import React from "react";
+
 
 const initialState = {
   name: "",
@@ -20,7 +21,7 @@ export const Contact = (props) => {
     e.preventDefault();
     console.log(name, email, message);
     emailjs
-      .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", e.target, "YOUR_USER_ID")
+      .sendForm("service_3fmhs9i", "template_dtxsja8", e.target, "nceDrwlcTso4jndD5")
       .then(
         (result) => {
           console.log(result.text);

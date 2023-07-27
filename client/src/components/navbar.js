@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 
@@ -11,11 +11,15 @@ export const Navbar = () => {
     window.localStorage.clear();
     navigate("/auth");
   };
+
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = 'smooth';
+  }, []);
+
   return (
     <nav id="menu" className="navbar navbar-default navbar-fixed-top">
       <div className="container">
         <div className="navbar-header">
-          
           <a className="navbar-brand page-scroll" href="/">
             VAXEASE
           </a>{" "}
@@ -27,26 +31,29 @@ export const Navbar = () => {
         >
           <ul className="nav navbar-nav navbar-right">
             <li>
-              <a href="/" className="page-scroll">
-                Home
+              <a>
+                <Link to="/" style={{ color:'#555' }}>Home</Link>
               </a>
             </li>
             <li>
-              <a href="#contact" className="page-scroll">
-                <Link to="/booking">Booking</Link>
+              <a>
+                <Link to="/booking" style={{ color:'#555' }}>Booking</Link>
               </a>
             </li>
 
             <li>
-              <a href="#contact">
-                <Link to="/mybookings">My Bookings</Link>
+              <a>
+                <Link to="/mybookings" style={{ color:'#555' }}>My Bookings</Link>
               </a>
+            </li>
+            <li>
+              <a href="/#contact">Contact</a>
             </li>
 
             <li>
               {!cookies.access_token ? (
-                <Link to="/auth">
-                  <p className="tab-options">Login/Register</p>
+                <Link to="/auth" style={{ color:'#555'}}>
+                  <a>Login/Register</a>
                 </Link>
               ) : (
                 <button className="button" onClick={logout}>
