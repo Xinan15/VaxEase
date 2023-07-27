@@ -52,14 +52,14 @@ export const Navbar = () => {
 
             <li>
               {!cookies.access_token ? (
-                <Link to="/auth" style={{ color:'#555'}}>
+                <Link to="/auth">
                   <a>Login/Register</a>
                 </Link>
               ) : (
-                <button className="button" onClick={logout}>
+                <a  style={{ color:'#608dfd' }} onClick={logout}>
                   {" "}
                   Logout{" "}
-                </button>
+                </a>
               )}
             </li>
           </ul>

@@ -57,7 +57,9 @@ const Login = () => {
           <input
             type="text"
             id="username"
+            className="form-control"
             value={username}
+            required
             onChange={(event) => setUsername(event.target.value)}
           />
         </div>
@@ -66,11 +68,13 @@ const Login = () => {
           <input
             type="password"
             id="password"
+            className="form-control"
             value={password}
+            required
             onChange={(event) => setPassword(event.target.value)}
           />
         </div>
-        <button type="submit" className={authcss.button_login}>Login</button>
+        <button type="submit" className="btn btn-custom btn-lg">Login</button>
       </form>
     </div>
   );
@@ -110,6 +114,8 @@ const Register = () => {
             type="text"
             id="username"
             value={username}
+            className="form-control"
+            required
             onChange={(event) => setUsername(event.target.value)}
           />
         </div>
@@ -119,10 +125,12 @@ const Register = () => {
             type="password"
             id="password"
             value={password}
+            className="form-control"
+            required
             onChange={(event) => setPassword(event.target.value)}
           />
         </div>
-        <button className={authcss.button} type="submit">Register</button>
+        <button className="btn btn-custom btn-lg" type="submit">Register</button>
       </form>
     </div>
   );
