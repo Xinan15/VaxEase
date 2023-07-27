@@ -141,7 +141,7 @@ hr {
   background-color: #608dfd;
 }
 .section-title {
-  margin-bottom: 70px;
+  margin-bottom: 10px;
 }
 .section-title h2 {
   position: relative;
@@ -245,10 +245,10 @@ header .intro-text {
   text-align: center;
 }
 /* Features Section */
-#features {
+#data {
   background: #f6f6f6;
 }
-#features i.fa {
+#data i.fa {
   font-size: 38px;
   margin-bottom: 20px;
   transition: all 0.5s;

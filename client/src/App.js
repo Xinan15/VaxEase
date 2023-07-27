@@ -6,11 +6,10 @@ import { Auth } from "./pages/auth";
 import { Booking } from "./pages/booking";
 import { MyBookings } from "./pages/mybookings";
 import { Header } from "./components/header";
-import { Features } from "./components/features";
+import { Data } from "./components/data";
 import { About } from "./components/about";
 import { Services } from "./components/services";
 import { News } from "./components/news";
-import { Testimonials } from "./components/testimonials";
 import { Team } from "./components/team";
 import { Contact } from "./components/contact";
 import { Footer } from "./components/footer";
@@ -26,11 +25,10 @@ function App() {
   const Home = () => (
     <div>
       <Header data={landingPageData.Header} />
-      <Features data={landingPageData.Features} />
+      <Data data={landingPageData.Features} />
       <About data={landingPageData.About} />
       <Services data={landingPageData.Services} />
       <News data={landingPageData.News} />
-      <Testimonials data={landingPageData.Testimonials} />
       <Team data={landingPageData.Team} />
       <Contact data={landingPageData.Contact} />
     </div>

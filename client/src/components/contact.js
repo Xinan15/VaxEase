@@ -8,7 +8,7 @@ const initialState = {
   email: "",
   message: "",
 };
-export const Contact = (props) => {
+export const Contact = () => {
   const [{ name, email, message }, setState] = useState(initialState);
 
   const handleChange = (e) => {
@@ -25,13 +25,18 @@ export const Contact = (props) => {
       .then(
         (result) => {
           console.log(result.text);
+          window.alert("Email sent successfully!");
+          // alert on successful email send
           clearState();
         },
         (error) => {
           console.log(error.text);
+          window.alert("Failed to send the email. Please try again.");
+          // alert on email sending failure
         }
       );
   };
+
   return (
     <div>
       <div id="contact">
@@ -101,24 +106,20 @@ export const Contact = (props) => {
               <p>
                 <span>
                   <i className="fa fa-map-marker"></i> Address
-                </span>
-                {props.data ? props.data.address : "loading"}
-              </p>
+                </span>Queen Mary University of London<br></br>Mile End Road<br></br>London E1 4NS</p>
             </div>
             <div className="contact-item">
               <p>
                 <span>
                   <i className="fa fa-phone"></i> Phone
-                </span>{" "}
-                {props.data ? props.data.phone : "loading"}
+                </span>+44 7911 123456
               </p>
             </div>
             <div className="contact-item">
               <p>
                 <span>
                   <i className="fa fa-envelope-o"></i> Email
-                </span>{" "}
-                {props.data ? props.data.email : "loading"}
+                </span>vaxease@qmul.com
               </p>
             </div>
           </div>
