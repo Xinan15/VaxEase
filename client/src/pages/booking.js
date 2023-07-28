@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useGetUserID } from "../hooks/useGetUserID";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
-import bookingcss from "./bookingCSS.module.css";
 
 export const Booking = () => {
   const [cookies] = useCookies(["access_token"]);
@@ -15,18 +14,19 @@ export const Booking = () => {
           <BookingForm />
         </div>
       ) : (
-        <Alert />
+        <div className="alert">
+          <Alert />
+        </div>
       )}
     </>
   );
 };
 
 export const Alert = () => {
-  const navigate = useNavigate();
   return (
     <div className={alert}>
-      <h1>Please Login to Book</h1>
-      <button onClick={() => navigate("/auth")}>Login</button>
+      <h1>Please Login to Book Your Appointment</h1>
+      <Link to="/auth"> <h2 style={{ color:'#608dfd', textDecoration:"underline", fontSize:"22px"}}>Login/Register</h2> </Link>
     </div>
   );
 };

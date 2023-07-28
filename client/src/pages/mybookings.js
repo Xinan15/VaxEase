@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useGetUserID } from "../hooks/useGetUserID";
 import axios from "axios";
 import { useCookies } from "react-cookie";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const MyBookings = () => {
   const [cookies] = useCookies(["access_token"]);
@@ -13,17 +13,19 @@ export const MyBookings = () => {
           <AllBookings />
         </div>
       ) : (
-        <Alert />
+        <div className="alert">
+          <Alert />
+        </div>
       )}
     </>
   );
 };
+
 export const Alert = () => {
-  const navigate = useNavigate();
   return (
     <div className={alert}>
-      <h1>Please Login to Book</h1>
-      <button onClick={() => navigate("/auth")}>Login</button>
+      <h1>Please Login to See Your Bookings</h1>
+      <Link to="/auth"> <h2 style={{ color:'#608dfd', textDecoration:"underline", fontSize:"22px"}}>Login/Register</h2> </Link>
     </div>
   );
 };
