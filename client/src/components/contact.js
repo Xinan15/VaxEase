@@ -86,9 +86,10 @@ export const Contact = () => {
                     name="message"
                     id="message"
                     className="form-control"
-                    rows="4"
+                    rows="6"
                     placeholder="Message"
                     required
+                    style={{resize: "none"}}
                     onChange={handleChange}
                   ></textarea>
                   <p className="help-block text-danger"></p>

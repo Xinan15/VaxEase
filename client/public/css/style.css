@@ -409,7 +409,7 @@ header .intro-text {
   margin-bottom: 40px;
 }
 
-/* Portfolio Section */
+/* Portfolio Section / image */
 #portfolio {
   padding: 100px 0;
 }
@@ -551,12 +551,13 @@ header .intro-text {
   font-family: "Open Sans", sans-serif;
   float: left;
 } */
+
 #contact .form-control {
   display: block;
   width: 100%;
   padding: 6px 12px;
   font-size: 16px;
-  line-height: 1.42857143;
+  line-height: 1.5;
   color: #444;
   background-color: #fff;
   background-image: none;
@@ -638,6 +639,9 @@ header .intro-text {
 #footer {
   background: #f6f6f6;
   padding: 30px 0;
+  flex-shrink: 0;
+  height: 120px;
+  width: 100%;
 }
 
 #footer p {
@@ -694,7 +698,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 160vh;
   background-color: #f2f2f2;
 }
 
@@ -703,13 +707,15 @@ label {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  margin-top: 80px;
   width: 100vh;
-  height:auto;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+.bookingContainer .btn{
+  text-align: center;
+  margin-bottom: 20px;
+}
 /* My Booking */
 
 

@@ -15,7 +15,7 @@ const BookingsSchema = new mongoose.Schema({
   type: { type: Object, required: true, },
   date: { type: String, required: true, },
   slot: { type: Object, required: true, },
-  info: { type: Array, required: true, },
+  info: { type: String, required: true, },
   userOwner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",

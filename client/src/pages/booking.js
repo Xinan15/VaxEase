@@ -49,7 +49,7 @@ export const BookingForm = () => {
     type: "",
     date: "",
     slot: "",
-    info: [],
+    info: "",
     userOwner: userID,
   });
 
@@ -118,32 +118,33 @@ export const BookingForm = () => {
     <div className="bookingContainer">
       <h2>Vaccine Booking</h2>
       <h3>Enter Your Details</h3>
-      <h4>About you</h4>
       <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label htmlFor="title" className="form-label" value={booking.title}>
-            Title*
-          </label>
-          <select
-            className="select"
-            id="title"
-            name="title"
-            onChange={handleChange}
-            required
-          >
-            <option value="">Select...</option>
-            <option value="Mr">Mr</option>
-            <option value="Mrs">Mrs</option>
-            <option value="Ms">Ms</option>
-            <option value="Miss">Miss</option>
-            <option value="Dr">Dr</option>
-          </select>
+        <div className="row">
+          <div className="col-md-2">
+            <label htmlFor="title" className="form-label" value={booking.title}>
+              Title*
+            </label>
+            <select
+              className="form-control"
+              id="title"
+              name="title"
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select...</option>
+              <option value="Mr">Mr</option>
+              <option value="Mrs">Mrs</option>
+              <option value="Ms">Ms</option>
+              <option value="Miss">Miss</option>
+              <option value="Dr">Dr</option>
+            </select>
+          </div>
         </div>
-
-        <div className="name-container">
-          <div className="name-input">
+        <div className="row">
+          <div className="col-md-6">
             <label htmlFor="fname">First Name*</label>
             <input
+              className="form-control"
               type="text"
               id="fname"
               name="fname"
@@ -152,212 +153,237 @@ export const BookingForm = () => {
               required
             />
           </div>
-          <div className="name-input">
+          <div className="col-md-6">
             <label htmlFor="lname">Last Name*</label>
             <input
               type="text"
               id="lname"
               name="lname"
+              className="form-control"
               value={booking.lname}
               onChange={handleChange}
               required
             />
           </div>
+          <div className="col-md-6">
+            <label htmlFor="gender" value={booking.gender}>
+              Gender Identity*
+            </label>
+            <select
+              className="form-control"
+              id="gender"
+              name="gender"
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select...</option>
+              <option value="Male(including trans man)">
+                Male(including trans man)
+              </option>
+              <option value="Female(including trans woman)">
+                Female(including trans woman)
+              </option>
+              <option value="Non-binary">Non-binary</option>
+              <option value="Other">Other</option>
+              <option value="Prefer not to say">Prefer not to say</option>
+            </select>
+          </div>
+          <div className="col-md-6">
+            <label htmlFor="dob" value={booking.dob}>
+              Date of Birth*
+            </label>
+            <input
+              className="form-control"
+              type="date"
+              id="dob"
+              name="dob"
+              max={dateString}
+              onChange={handleChange}
+              value={booking.dob}
+              required
+            ></input>
+          </div>
         </div>
 
-        <div className="dob-container">
-          <label htmlFor="dob" value={booking.dob}>
-            Date of Birth*
-          </label>
-          <input
-            type="date"
-            id="dob"
-            name="dob"
-            max={dateString}
-            onChange={handleChange}
-            value={booking.dob}
-            required
-          ></input>
+        <h3>About you</h3>
+        <div className="row">
+          <div className="col-md-6">
+            <label htmlFor="email">Email*</label>
+            <input
+              type="text"
+              className="form-control"
+              id="email"
+              name="email"
+              value={booking.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="col-md-6">
+            <label htmlFor="phone">Phone Number*</label>
+            <input
+              type="text"
+              className="form-control"
+              id="phone"
+              name="phone"
+              value={booking.phone}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="col-md-6">
+            <label htmlFor="city">City*</label>
+            <input
+              type="text"
+              className="form-control"
+              id="city"
+              name="city"
+              value={booking.city}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="col-md-6">
+            <label htmlFor="postcode">Postcode*</label>
+            <input
+              type="text"
+              id="postcode"
+              className="form-control"
+              name="postcode"
+              value={booking.postcode}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="col-md-12">
+            <label htmlFor="address1">Address line 1*</label>
+            <input
+              type="text"
+              className="form-control"
+              id="address1"
+              name="address1"
+              value={booking.address1}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="col-md-12">
+            <label htmlFor="address2">Address line 2</label>
+            <input
+              type="text"
+              className="form-control"
+              id="address2"
+              name="address2"
+              value={booking.address2}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+        <h3>I would like an appointment for</h3>
+
+        <div className="row">
+          <div className="col-md-6">
+            <label htmlFor="type" value={booking.type}>
+              Type*
+            </label>
+            <select
+              id="type"
+              className="form-control"
+              name="type"
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select...</option>
+              <option value="Pfizer-BioNTech 1st Dose">
+                Pfizer-BioNTech 1st Dose
+              </option>
+              <option value="Pfizer-BioNTech 2nd Dose">
+                Pfizer-BioNTech 2nd Dose
+              </option>
+              <option value="Pfizer-BioNTech 3rd Dose">
+                Pfizer-BioNTech 3rd Dose
+              </option>
+            </select>
+          </div>
         </div>
 
-        <div>
-          <label htmlFor="gender" value={booking.gender}>
-            Gender Identity*
-          </label>
-          <select
-            className="select"
-            id="gender"
-            name="gender"
-            onChange={handleChange}
-            required
-          >
-            <option value="">Select...</option>
-            <option value="Male(including trans man)">
-              Male(including trans man)
-            </option>
-            <option value="Female(including trans woman)">
-              Female(including trans woman)
-            </option>
-            <option value="Non-binary">Non-binary</option>
-            <option value="Other">Other</option>
-            <option value="Prefer not to say">Prefer not to say</option>
-          </select>
-        </div>
+        <div className="row">
+          <div className="col-md-6">
+            <label htmlFor="date">Date*</label>
+            <input
+              type="date"
+              id="date"
+              name="date"
+              className="form-control"
+              min={dateString}
+              value={booking.date}
+              onChange={handleChange}
+              required
+            ></input>
+          </div>
 
-        <h4>About you</h4>
-
-        <div>
-          <label htmlFor="phone">Phone Number*</label>
-          <input
-            type="text"
-            id="phone"
-            name="phone"
-            value={booking.phone}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div>
-          <label htmlFor="email">Email*</label>
-          <input
-            type="text"
-            id="email"
-            name="email"
-            value={booking.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div>
-          <label htmlFor="city">City*</label>
-          <input
-            type="text"
-            id="city"
-            name="city"
-            value={booking.city}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div>
-          <label htmlFor="postcode">Postcode*</label>
-          <input
-            type="text"
-            id="postcode"
-            name="postcode"
-            value={booking.postcode}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div>
-          <label htmlFor="address1">Address line 1*</label>
-          <input
-            type="text"
-            id="address1"
-            name="address1"
-            value={booking.address1}
-            onChange={handleChange}
-            required
-          />
-          <label htmlFor="address2">Address line 2</label>
-          <input
-            type="text"
-            id="address2"
-            name="address2"
-            value={booking.address2}
-            onChange={handleChange}
-          />
-        </div>
-
-        <h4>I would like an appointment for:</h4>
-
-        <div>
-          <label htmlFor="type" value={booking.type}>
-            Type*
-          </label>
-          <select
-            className="select"
-            id="type"
-            name="type"
-            onChange={handleChange}
-            required
-          >
-            <option value="">Select...</option>
-            <option value="Pfizer-BioNTech 1st Dose">
-              Pfizer-BioNTech 1st Dose
-            </option>
-            <option value="Pfizer-BioNTech 2nd Dose">
-              Pfizer-BioNTech 2nd Dose
-            </option>
-            <option value="Pfizer-BioNTech 3rd Dose">
-              Pfizer-BioNTech 3rd Dose
-            </option>
-          </select>
-        </div>
-
-        <div>
-          <label htmlFor="date">Date*</label>
-          <input
-            type="date"
-            id="date"
-            name="date"
-            className="date-field"
-            min={dateString}
-            value={booking.date}
-            onChange={handleChange}
-            required
-          ></input>
-        </div>
-
-        <div>
-          <label htmlFor="slot" value={booking.slot}>
-            Slot*
-          </label>
-          <select
-            className="select"
-            id="slot"
-            name="slot"
-            onChange={handleChange}
-            required
-          >
-            <option value="">Select...</option>
-            <option value="09:00 To 09:30">09:00 To 09:30</option>
-            <option value="10:30 To 11:00">10:30 To 11:00</option>
-            <option value="12:00 To 12:30">12:00 To 12:30</option>
-            <option value="13:30 To 14:00">13:30 To 14:00</option>
-            <option value="15:00 To 15:30">15:00 To 15:30</option>
-            <option value="16:30 To 17:00">16:30 To 17:00</option>
-          </select>
+          <div>
+            <div className="col-md-6">
+              <label htmlFor="slot" value={booking.slot}>
+                Slot*
+              </label>
+              <select
+                id="slot"
+                className="form-control"
+                name="slot"
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select...</option>
+                <option value="09:00 To 09:30">09:00 To 09:30</option>
+                <option value="10:30 To 11:00">10:30 To 11:00</option>
+                <option value="12:00 To 12:30">12:00 To 12:30</option>
+                <option value="13:30 To 14:00">13:30 To 14:00</option>
+                <option value="15:00 To 15:30">15:00 To 15:30</option>
+                <option value="16:30 To 17:00">16:30 To 17:00</option>
+              </select>
+            </div>
+          </div>
         </div>
 
         <h4>Additional Information</h4>
-        <div>
-          <label htmlFor="info">
-            Do you have any concerns or information you would like to share with
-            us?
-          </label>
-          {booking.info.map((info, index) => (
-            <input
-              key={index}
-              type="text"
+        <div className="row">
+          <div className="col-md-12">
+            <label htmlFor="info">
+              <b>
+                Do you have any concerns or information you would like to share
+                with us?
+              </b>
+            </label>
+          </div>
+          <div className="col-md-12">
+            <textarea
               name="info"
-              value={info}
-              onChange={(event) => handleInfoChange(event, index)}
-            />
-          ))}
-          <button type="button" className="button" onClick={handleAddInfo}>
-            Add Information
-          </button>
+              id="info"
+              className="form-control"
+              rows="4"
+              placeholder="Message"
+              onChange={handleChange}
+              value={booking.info}
+              style={{resize: "none"}}
+            ></textarea>
+          </div>
         </div>
 
-        <button type="submit" className="button">
-          Submit
-        </button>
+        <div className="row">
+          <div className="col-md-6">
+            <button
+              type="submit"
+              className="button btn btn-custom btn-lg page-scroll"
+              style={{marginTop: "20px"}}
+            >
+              Submit
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   );
