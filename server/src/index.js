@@ -5,7 +5,6 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import { userRouter } from "./routes/users.js";
-import { recipesRouter } from "./routes/recipes.js";
 import { bookingsRouter } from "./routes/bookings.js";
 import dotenv from "dotenv";
 dotenv.config();
@@ -16,7 +15,6 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/auth", userRouter);
-app.use("/recipes", recipesRouter);
 app.use("/bookings", bookingsRouter);
 
 mongoose.connect(process.env.SECRET_KEY, {
