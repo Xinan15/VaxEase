@@ -24,7 +24,7 @@ export const Booking = () => {
 
 export const Alert = () => {
   return (
-    <div className="alert">
+    <div>
       <h1>Please Login to Book Your Appointment</h1>
       <Link to="/auth"> <h2 style={{ color:'#608dfd', textDecoration:"underline", fontSize:"22px"}}>Login/Register</h2> </Link>
     </div>
