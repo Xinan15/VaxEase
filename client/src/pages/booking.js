@@ -24,7 +24,7 @@ export const Booking = () => {
 
 export const Alert = () => {
   return (
-    <div className={alert}>
+    <div className="alert">
       <h1>Please Login to Book Your Appointment</h1>
       <Link to="/auth"> <h2 style={{ color:'#608dfd', textDecoration:"underline", fontSize:"22px"}}>Login/Register</h2> </Link>
     </div>
@@ -102,7 +102,6 @@ export const BookingForm = () => {
           headers: { authorization: cookies.access_token },
         }
       );
-
       alert("Appointment Booked!");
       navigate("/");
     } catch (error) {
@@ -177,15 +176,15 @@ export const BookingForm = () => {
               required
             >
               <option value="">Select...</option>
-              <option value="Male(including trans man)">
-                Male(including trans man)
+              <option value="Male (Including trans man)">
+                Male (Including trans man)
               </option>
-              <option value="Female(including trans woman)">
-                Female(including trans woman)
+              <option value="Female (Including trans woman)">
+                Female (Including trans woman)
               </option>
               <option value="Non-binary">Non-binary</option>
               <option value="Other">Other</option>
-              <option value="Prefer not to say">Prefer not to say</option>
+              <option value="Not Stated">Not Stated</option>
             </select>
           </div>
           <div className="col-md-6">
@@ -359,8 +358,10 @@ export const BookingForm = () => {
               </b>
             </label>
           </div>
+
           <div className="col-md-12">
             <textarea
+              type="text"
               name="info"
               id="info"
               className="form-control"

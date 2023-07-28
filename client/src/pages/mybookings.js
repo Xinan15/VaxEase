@@ -9,7 +9,7 @@ export const MyBookings = () => {
   return (
     <>
       {cookies.access_token ? (
-        <div className="booking">
+        <div className="allbookings">
           <AllBookings />
         </div>
       ) : (
@@ -63,28 +63,63 @@ export const AllBookings = () => {
 
   return (
     <div className="bookingContainer">
-      <h1>Bookings</h1>
+      <div className="row"><div className="col-md-6">
+        <h2>All Bookings</h2></div></div>
       <ul>
         {allBookings.map((booking) => (
           <li key={booking._id}>
-            <div>
-              <h2>{booking.title}</h2>
-              <h2>{booking.fname}</h2>
-              <h2>{booking.lname}</h2>
-              <h2>{booking.dob}</h2>
-              <h2>{booking.gender}</h2>
-              <h2>{booking.phone}</h2>
-              <h2>{booking.email}</h2>
-              <h2>{booking.city}</h2>
-              <h2>{booking.postcode}</h2>
-              <h2>{booking.address1}</h2>
-              <h2>{booking.address2}</h2>
-              <h2>{booking.type}</h2>
-              <h2>{booking.date}</h2>
-              <h2>{booking.slot}</h2>
-              <h2>{booking.info}</h2>
+            <div className="row">
+              <div className="col-md-12">
+              <div className="col-md-3">
+                <p>Name</p>
+                </div>
+                <div className="col-md-9">
+                <p>{booking.title+" "+booking.fname+" "+booking.lname}</p>
+                </div>
+              </div>
+              <div className="col-md-12">
+                <div className="col-md-3"><p>Date of Birth</p></div>
+                <div className="col-md-9"><p>{booking.dob}</p></div>
+                </div>
+              <div className="col-md-12">
+                <div className="col-md-3"><p>Gender</p></div>
+                <div className="col-md-9"><p>{booking.gender}</p></div>
+                </div>
+              <div className="col-md-12">
+                <div className="col-md-3"><p>Phone Number</p></div>
+                <div className="col-md-9"><p>{booking.phone}</p></div>
+                </div>
+
+                <div className="col-md-12">
+                <div className="col-md-3"><p>Email</p></div>
+                <div className="col-md-9"><p>{booking.email}</p></div>
+                </div>
+
+                <div className="col-md-12">
+                <div className="col-md-3"><p>Address</p></div>
+                <div className="col-md-9"><p>{booking.address1}</p></div>
+                </div>
+
+                <div className="col-md-12">
+                <div className="col-md-3"><p></p></div>
+                <div className="col-md-9"><p>{booking.address2}</p></div>
+                </div>
+
+                <div className="col-md-12">
+                <div className="col-md-3"><p>Date</p></div>
+                <div className="col-md-9"><p>{booking.date+" - "+booking.slot}</p></div>
+                </div>
+
+                <div className="col-md-12">
+                <div className="col-md-3"><p>Type</p></div>
+                <div className="col-md-9"><p>{booking.type}</p></div>
+                </div>
+
+                <div className="col-md-12">
+                <div className="col-md-3"><p>Additional Info</p></div>
+                <div className="col-md-9"><p>{booking.info}</p></div>
+                </div>
             </div>
-            <p>End</p>
           </li>
         ))}
       </ul>
