@@ -118,7 +118,7 @@ export const AllBookings = () => {
                 <div className="col-md-12">
                 <div className="col-md-3"><p>Additional Info</p></div>
                 <div className="col-md-9"><p>{booking.info}</p></div>
-                </div><hr></hr>
+                </div><hr style={{ background:'#608dfd' }}></hr>
             </div>
           </li>
         ))}
