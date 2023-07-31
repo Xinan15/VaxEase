@@ -7,14 +7,27 @@ import { verifyToken } from "./users.js";
 
 const router = express.Router();
 
-router.get("/", async (req, res) => {
+// Inside this route to fetch the user with the provided userId and check their role
+// If the user is an 'admin', return all bookings
+// If not, return only the bookings that belong to this user
+router.get("/:userId", async (req, res) => {
   try {
-    const result = await BookingsModel.find({});
-    res.status(200).json(result);
+    const user = await UserModel.findById(req.params.userId);
+    if (!user) {
+      return res.status(400).json({ message: "User not found" });
+    }
+    if (user.role === 'admin') {
+      const result = await BookingsModel.find({});
+      return res.status(200).json(result);
+    } else {
+      const result = await BookingsModel.find({ userOwner: user._id });
+      return res.status(200).json(result);
+    }
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
 
 // Create a new booking
 router.post("/", verifyToken, async (req, res) => {

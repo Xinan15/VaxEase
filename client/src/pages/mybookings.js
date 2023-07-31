@@ -39,7 +39,8 @@ export const AllBookings = () => {
   useEffect(() => {
     const fetchAllBookings = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/bookings");
+        const response = await axios.get(`http://localhost:3001/bookings/${userID}`);
+        // const response = await axios.get("http://localhost:3001/bookings");
         setAllBookings(response.data);
       } catch (err) {
         console.log(err);
