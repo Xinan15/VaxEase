@@ -26,7 +26,18 @@ export const Alert = () => {
   return (
     <div>
       <h1>Please Login to Book Your Appointment</h1>
-      <Link to="/auth"> <h2 style={{ color:'#608dfd', textDecoration:"underline", fontSize:"22px"}}>Login/Register</h2> </Link>
+      <Link to="/auth">
+        {" "}
+        <h2
+          style={{
+            color: "#608dfd",
+            textDecoration: "underline",
+            fontSize: "22px",
+          }}
+        >
+          Login/Register
+        </h2>{" "}
+      </Link>
     </div>
   );
 };
@@ -58,18 +69,6 @@ export const BookingForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setBooking((prevState) => ({ ...prevState, [name]: value }));
-  };
-
-  const handleInfoChange = (event, index) => {
-    const { value } = event.target;
-    const info = [...booking.info];
-    info[index] = value;
-    setBooking({ ...booking, info });
-  };
-
-  const handleAddInfo = () => {
-    const info = [...booking.info, ""];
-    setBooking({ ...booking, info });
   };
 
   const handleSubmit = async (event) => {
@@ -369,7 +368,7 @@ export const BookingForm = () => {
               placeholder="Message"
               onChange={handleChange}
               value={booking.info}
-              style={{resize: "none"}}
+              style={{ resize: "none" }}
             ></textarea>
           </div>
         </div>
@@ -379,7 +378,7 @@ export const BookingForm = () => {
             <button
               type="submit"
               className="button btn btn-custom btn-lg page-scroll"
-              style={{marginTop: "20px"}}
+              style={{ marginTop: "20px" }}
             >
               Submit
             </button>

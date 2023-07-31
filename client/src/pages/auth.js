@@ -43,7 +43,13 @@ const Login = () => {
       window.localStorage.setItem("userID", result.data.userID);
       navigate("/");
     } catch (error) {
-      console.error(error);
+      // display the error message to the user
+      if (error.response) {
+        // If response is available, means it's an HTTP response error from server
+        alert(error.response.data.message);
+      } else {
+        console.error(error);
+      }
     }
   };
 
@@ -73,7 +79,9 @@ const Login = () => {
             onChange={(event) => setPassword(event.target.value)}
           />
         </div>
-        <button type="submit" className="btn btn-custom btn-lg">Login</button>
+        <button type="submit" className="btn btn-custom btn-lg">
+          Login
+        </button>
       </form>
     </div>
   );
@@ -83,10 +91,6 @@ const Register = () => {
   // Here we save the username and password from the form and send it to the server
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
-  // Here we don't need to access the cookies, instead, we need to access the setCookie function
-  const [_, setCookies] = useCookies(["access_token"]);
-  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     // this prevents the page from refreshing
@@ -99,7 +103,14 @@ const Register = () => {
       });
       alert("Registration Completed! Now login.");
     } catch (error) {
-      console.error(error);
+      // display the error message to the user
+      if (error.response) {
+        // If response is available, means it's an HTTP response error from server
+        // We're accessing `error` field in the response data that we returned from our backend
+        alert(error.response.data.error);
+      } else {
+        console.error(error);
+      }
     }
   };
 
@@ -129,7 +140,9 @@ const Register = () => {
             onChange={(event) => setPassword(event.target.value)}
           />
         </div>
-        <button className="btn btn-custom btn-lg" type="submit">Register</button>
+        <button className="btn btn-custom btn-lg" type="submit">
+          Register
+        </button>
       </form>
     </div>
   );

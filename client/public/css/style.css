@@ -698,7 +698,9 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 160vh;
+  height: auto;
+  padding-top: 120px;
+  padding-bottom:60px;
   background-color: #f2f2f2;
 }
 
@@ -730,7 +732,9 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  height:120vh;
+  height:auto;
+  padding-top: 120px;
+  padding-bottom:50px;
   background-color: #f2f2f2;
 }
 .bookingContainer p {
