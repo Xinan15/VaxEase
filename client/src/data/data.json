@@ -1,0 +1,61 @@
+{
+  "Header": {
+    "title": "Book Today, Stay Protected",
+    "paragraph": 
+    "Experience an effortless, streamlined process for booking your vaccine appointment, right from the comfort of your home."
+  },
+  "News": [
+    {
+      "title": "Statement on the antigen composition of COVID-19 vaccines",
+      "smallImage": "img/news/news1.png",
+      "link": "https://www.who.int/news/item/18-05-2023-statement-on-the-antigen-composition-of-covid-19-vaccines"
+    },
+    {
+      "title": "mRNA Technology moves to the next phase of its development",
+      "smallImage": "img/news/news2.png",
+      "link": "https://www.who.int/news/item/20-04-2023-mrna-technology-transfer-programme-moves-to-the-next-phase-of-its-development"
+    },
+    {
+      "title": "WHO validates 11th vaccine for COVID-19",
+      "smallImage": "img/news/news3.png",
+      "link": "https://www.who.int/news/item/19-05-2022-who-validates-11th-vaccine-for-covid-19"
+    },
+    {
+      "title": "WHO lists 10th COVID-19 vaccine for emergency use : Nuvaxovid",
+      "smallImage": "img/news/news4.png",
+      "link": "https://www.who.int/news/item/21-12-2021-who-lists-10th-covid-19-vaccine-for-emergency-use-nuvaxovid"
+    },
+    {
+      "title": "Leaders Make Urgent Call To Accelerate Vaccination Globally",
+      "smallImage": "img/news/news5.png",
+      "link": "https://www.who.int/news/item/14-09-2021-leaders-make-urgent-call-to-accelerate-vaccination-globally-and-in-africa"
+    },
+    {
+      "title": "Novavax Covid-19 vaccine recommendations for use",
+      "smallImage": "img/news/news6.jpg",
+      "link": "https://www.who.int/news/item/20-12-2021-novavax-covid-19-vaccine-recommendations-for-use"
+    }
+  ],
+  "Team": [
+    {
+      "img": "img/team/doc.jpg",
+      "name": "John",
+      "job": "Doctor"
+    },
+    {
+      "img": "img/team/doc.jpg",
+      "name": "Mike",
+      "job": "Pharmacist"
+    },
+    {
+      "img": "img/team/nurse.png",
+      "name": "Jane",
+      "job": "Nurse"
+    },
+    {
+      "img": "img/team/nurse.png",
+      "name": "Karen",
+      "job": "Nurse"
+    }
+  ]
+}
