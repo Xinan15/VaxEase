@@ -1,3 +1,4 @@
+// This file contains all the routes for the bookings
 import express from "express";
 import mongoose from "mongoose";
 import { BookingsModel } from "../models/Bookings.js";

@@ -1,3 +1,4 @@
+// This file contains all the routes for the users
 // routes folder - to separate our API endpoints into different routes
 // users.js encompass everything related to login and register
 import express from "express";
