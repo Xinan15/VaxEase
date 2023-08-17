@@ -40,26 +40,12 @@ export const AllBookings = () => {
     const fetchAllBookings = async () => {
       try {
         const response = await axios.get(`http://localhost:3001/bookings/${userID}`);
-        // const response = await axios.get("http://localhost:3001/bookings");
         setAllBookings(response.data);
       } catch (err) {
         console.log(err);
       }
     };
-
-    // const fetchMyBookings = async () => {
-    //   try {
-    //     const response = await axios.get(
-    //       `http://localhost:3001/bookings/savedBookings/ids/${userID}`
-    //     );
-    //     setMyBookings(response.data.savedBookings);
-    //   } catch (err) {
-    //     console.log(err);
-    //   }
-    // };
-
     fetchAllBookings();
-    // fetchMyBookings();
   }, []);
 
   return (
