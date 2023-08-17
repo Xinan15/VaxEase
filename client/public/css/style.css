@@ -747,7 +747,9 @@ label {
 }
 
 /* Media Queries */
-@media (max-width: 768px) {
+/* Phones */
+/* 767px is a commonly used breakpoint to target phone screen sizes. */
+@media (max-width: 767px) {
   #about img {
     margin: 50px 0;
   }

@@ -46,7 +46,7 @@ export const AllBookings = () => {
       }
     };
     fetchAllBookings();
-  }, []);
+  }, [userID]);
 
   return (
     <div className="bookingContainer">
