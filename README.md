@@ -26,14 +26,14 @@ This is a full-stack web app built by the MERN stack with authentication, offeri
 2. **Contact Us Section**  
    The "Contact Us" section adopts `EmailJS` for email communication, allowing visitors to easily reach out to the team.
 
-4. **Booking Page**  
+3. **Booking Page**  
    A booking page features a structured form where users can input their details and schedule a vaccine slot.
 
-5. **My Booking Page with Access Control**  
+4. **My Booking Page with Access Control**  
    - **User Role:** Users logging in with regular accounts can view only their personal appointment records.
    - **Admin Role:** Administrators have access to all booking records, ensuring efficient management of vaccination schedules.
 
-6. **Authentication**  
+5. **Authentication**  
    - **Login/Register Page:** Users can sign up or log in via a unified authentication page.
    - **Password Encryption:** Passwords are hashed using bcrypt for secure storage.
    - **Session Cookies & JWT:** User sessions are maintained using cookies, and JWT tokens are employed to manage authentication.
