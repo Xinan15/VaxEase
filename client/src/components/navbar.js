@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
-
 
 export const Navbar = () => {
   const [cookies, setCookies] = useCookies(["access_token"]);
@@ -14,31 +13,44 @@ export const Navbar = () => {
   };
 
   useEffect(() => {
-    document.documentElement.style.scrollBehavior = 'smooth';
+    document.documentElement.style.scrollBehavior = "smooth";
   }, []);
 
   // Function: Navigate To Contact
   const navigateToContact = (e) => {
-    e.preventDefault();  // Prevent the default link click action
-    navigate('/');  // Navigate to the home page
+    e.preventDefault(); // Prevent the default link click action
+    navigate("/"); // Navigate to the home page
 
     // After navigating, scroll to the contact section
     setTimeout(() => {
-      const contactSection = document.querySelector('#contact');
+      const contactSection = document.querySelector("#contact");
       if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
+        contactSection.scrollIntoView({ behavior: "smooth" });
       }
-    }, 100);  // Adjust this delay as needed
+    }, 100); // Adjust this delay as needed
   };
 
   // Function: Navigate To Home Top
   const navigateToTop = (e) => {
     e.preventDefault();
-    navigate('/');
+    navigate("/");
     setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }, 100);
   };
+
+  // Function: Scroll To Top
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  // 使用 useEffect 监听路由变化，每次路由变化时都滚动到顶部
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
   return (
     <nav id="menu" className="navbar navbar-default navbar-fixed-top">
@@ -56,31 +68,39 @@ export const Navbar = () => {
           <ul className="nav navbar-nav navbar-right">
             <li>
               <a>
-                <Link to="/" onClick={navigateToTop} style={{ color:'#555' }}>Home</Link>
+                <Link to="/" onClick={navigateToTop} style={{ color: "#555" }}>
+                  Home
+                </Link>
               </a>
             </li>
             <li>
               <a>
-                <Link to="/booking" style={{ color:'#555' }}>Booking</Link>
+                <Link to="/booking" onClick={scrollToTop} style={{ color: "#555" }}>
+                  Booking
+                </Link>
               </a>
             </li>
 
             <li>
               <a>
-                <Link to="/mybookings" style={{ color:'#555' }}>My Bookings</Link>
+                <Link to="/mybookings" onClick={scrollToTop} style={{ color: "#555" }}>
+                  My Bookings
+                </Link>
               </a>
             </li>
             <li>
-              <a to="#contact" onClick={navigateToContact}>Contact</a>
+              <a to="#contact" onClick={navigateToContact}>
+                Contact
+              </a>
             </li>
 
             <li>
               {!cookies.access_token ? (
-                <Link to="/auth">
+                <Link to="/auth" onClick={scrollToTop}>
                   <a>Login/Register</a>
                 </Link>
               ) : (
-                <a  style={{ color:'#608dfd' }} onClick={logout}>
+                <a style={{ color: "#608dfd" }} onClick={logout}>
                   {" "}
                   Logout{" "}
                 </a>
