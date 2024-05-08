@@ -9,40 +9,14 @@ export const Booking = () => {
 
   return (
     <>
-      {cookies.access_token ? (
-        <div className="booking">
-          <BookingForm />
-        </div>
-      ) : (
-        <div className="alert">
-          <Alert />
-        </div>
-      )}
+      <div className="booking">
+        <BookingForm isLoggedIn={!!cookies.access_token} />
+      </div>
     </>
   );
 };
 
-export const Alert = () => {
-  return (
-    <div>
-      <h1>Please Login to Book Your Appointment</h1>
-      <Link to="/auth">
-        {" "}
-        <h2
-          style={{
-            color: "#608dfd",
-            textDecoration: "underline",
-            fontSize: "22px",
-          }}
-        >
-          Login/Register
-        </h2>{" "}
-      </Link>
-    </div>
-  );
-};
-
-export const BookingForm = () => {
+export const BookingForm = ({ isLoggedIn }) => {
   const userID = useGetUserID();
   const [cookies, _] = useCookies(["access_token"]);
   const [booking, setBooking] = useState({
@@ -90,6 +64,11 @@ export const BookingForm = () => {
       !booking.slot
     ) {
       alert("All fields with * must be filled out!");
+      return;
+    }
+
+    if (!isLoggedIn) {
+      alert("Please log in to book your appointment.");
       return;
     }
 
@@ -375,13 +354,25 @@ export const BookingForm = () => {
 
         <div className="row">
           <div className="col-md-6">
-            <button
-              type="submit"
-              className="button btn btn-custom btn-lg page-scroll"
-              style={{ marginTop: "20px" }}
-            >
-              Submit
-            </button>
+            {cookies.access_token ? (
+              <button
+                type="submit"
+                className="button btn btn-custom btn-lg page-scroll"
+                style={{ marginTop: "20px" }}
+              >
+                Submit
+              </button>
+            ) : (
+              <Link to="/auth" style={{ textDecoration: "none" }}>
+                <button
+                  className="button btn btn-custom btn-lg page-scroll"
+                  style={{ marginTop: "20px" }}
+                  title="Please log in to book your appointment."
+                >
+                  Log in to book your slot
+                </button>
+              </Link>
+            )}
           </div>
         </div>
       </form>
