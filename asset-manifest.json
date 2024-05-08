@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/static/css/main.31d6cfe0.css",
-    "main.js": "/static/js/main.689473de.js",
-    "index.html": "/index.html",
-    "main.689473de.js.map": "/static/js/main.689473de.js.map"
+    "main.css": "/VaxEase/static/css/main.31d6cfe0.css",
+    "main.js": "/VaxEase/static/js/main.689473de.js",
+    "index.html": "/VaxEase/index.html",
+    "main.689473de.js.map": "/VaxEase/static/js/main.689473de.js.map"
   },
   "entrypoints": [
     "static/css/main.31d6cfe0.css",
